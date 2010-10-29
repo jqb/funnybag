@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n ratings %}
+{% load i18n core_tags %}
 
 {% block application %}
 <article>
@@ -8,10 +8,8 @@
       <div class="list">
 	{% for record in records %}
 	<div class="list-element">
-	  <!-- {{ record.get_absolute_url }} -->
 	  {% include record.template %}
-          {% rating_by_user user on record.rating as vote %}
-	  [{{ vote }}]
+	  {% if not user.is_anonymous %}{% record_rating user record %}{% endif %}
 	</div>
 	<div class="list-element-footer">
 	  [<a href="{{ record.get_absolute_url }}">link</a>] [<a href="#">{% trans "source" %}</a>]

@@ -84,12 +84,16 @@ body{
 /* Header */
 header{
     float: left;
-    width: 100%; }
+    width: 100%;
+    margin-top: -10px;
+}
 
 /* Content */
 article{
     float: left;
-    width: 66.7%; }
+    width: 66.7%;
+    margin-top: 10px;
+}
 
 /* Sidebar */
 aside{
@@ -118,7 +122,19 @@ body {
 }
 
 article {
-    background:#fbfaf5
+}
+
+section {
+    background:#fbfaf5;
+
+    -moz-box-shadow:0px 0px 10px #333;
+    -webkit-box-shadow:0px 0px 10px #333;
+    box-shadow:0px 0px 10px #333;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border:2px solid #F7F4EB;
+    overflow:hidden;
 }
 
 .logo {
@@ -129,13 +145,12 @@ header {
     border-bottom: 2px solid #000;
     background: #333333;
 
-    -moz-box-shadow:0px 0px 20px #333333;
-    -webkit-box-shadow:0px 0px 20px #333333;
-    box-shadow:0px 0px 20px #333333;
-    -moz-border-radius:5px 5px 0px 0px;
-    -webkit-border-radius:5px 5px 0px 0px;
-    border-radius:5px 5px 0px 0px;
-    border:2px solid #F7F4EB
+    -moz-box-shadow:0px 0px 10px #333333;
+    -webkit-box-shadow:0px 0px 10px #333333;
+    box-shadow:0px 0px 10px #333333;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
     overflow:hidden;
 }
 
@@ -150,11 +165,21 @@ nav {
 
 nav a{
     color: #f0f0f0;
-    padding: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+
+    -moz-box-shadow:0px 0px 7px #d0d0d0;
+    -webkit-box-shadow:0px 0px 7px #d0d0d0;
+    box-shadow:0px 0px 7px #d0d0d0;
+
+    border: 1px solid;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
 }
 
 nav a:hover{
-    color: #dddddd;
+    color: #aaa;
 }
 
 
@@ -163,7 +188,6 @@ footer {
 }
 
 aside .inside{
-    border-right: 1px solid #333;
 }
 
 
@@ -226,6 +250,24 @@ aside .inside{
 
 ul, li {
         list-style:none outside none;
+}
+
+ul.vote-selection li {
+    float: left;
+    border: 1px solid;
+    margin-left:3px;
+    padding:3px;
+
+    border: 1px solid;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+
+    font-size: 15px;
+}
+
+ul.vote-selection li a{
+    text-decoration: none;
 }
 
 .errors {
