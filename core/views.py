@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import forms as auth_form
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 
 from funnybag.core.models import Record
 from funnybag.core.forms import JokeForm, ImageForm, QuoteForm, VideoForm
@@ -28,14 +28,15 @@ def new(request, record_type):
                 ).get(record_type, None)
 
     if not Form:
-        raise Http404()
+        return {'form': None, 'action_form': ''}
 
     if request.method == 'POST':
         form = Form(request.POST)
         if form.is_valid():
-            record = form.save()
+            item = form.save()
+            record = item.get_record()
             return HttpResponseRedirect(record.get_absolute_url())
     else:
         form = Form()
 
-    return {'form': form }
+    return {'form': form, 'form_action': record_type}

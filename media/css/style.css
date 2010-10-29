@@ -132,9 +132,9 @@ header {
     -moz-box-shadow:0px 0px 20px #333333;
     -webkit-box-shadow:0px 0px 20px #333333;
     box-shadow:0px 0px 20px #333333;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:5px;
+    -moz-border-radius:5px 5px 0px 0px;
+    -webkit-border-radius:5px 5px 0px 0px;
+    border-radius:5px 5px 0px 0px;
     border:2px solid #F7F4EB
     overflow:hidden;
 }

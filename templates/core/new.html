@@ -4,7 +4,13 @@
 {% block application %}
 <div class="element-new">
   <h2>New Item</h2>
-  <form>
+  {% if not form %}
+  <a href="{% url core-new-record 'joke' %}">{% trans "Joke" %}</a>
+  <a href="{% url core-new-record 'quote' %}">{% trans "Quote" %}</a>
+  <a href="{% url core-new-record 'image' %}">{% trans "Image" %}</a>
+  <a href="{% url core-new-record 'video' %}">{% trans "Video" %}</a>
+  {% else %}
+  <form action="{% url core-new-record form_action %}" method="POST">{% csrf_token %}
     <table>
       {{ form }}
     </table>
@@ -13,5 +19,6 @@
       <input type="submit" value="{% trans 'Send'%}" />
     </div>
   </form>
+  {% endif %}
 </div>
 {% endblock %}

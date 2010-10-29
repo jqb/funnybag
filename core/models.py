@@ -38,6 +38,9 @@ class RecordBase(models.Model):
         except Record.DoesNotExist:
             Record.objects.create(data=self)
 
+    def get_record(self):
+        return Record.objects.get(data_type=ContentType.objects.get_for_model(self.__class__),
+                                  object_id=self.id)
 
 class Image(RecordBase):
     title = models.CharField(max_length=512)
