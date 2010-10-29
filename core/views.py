@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import forms as auth_form
+from django.http import Http404
 
 from funnybag.core.models import Record
 from funnybag.core.forms import JokeForm, ImageForm, QuoteForm, VideoForm
@@ -21,19 +22,20 @@ def list(request):
             'login_next' : "/"}
 
 @render_to('core/new.html')
-def new(request):
+def new(request, record_type):
+    Form = dict(joke=JokeForm, quote=QuoteForm,
+                image=ImageForm, video=VideoForm,
+                ).get(record_type, None)
+
+    if not Form:
+        raise Http404()
+
     if request.method == 'POST':
-        form = JokeForm(request.POST)
+        form = Form(request.POST)
         if form.is_valid():
             record = form.save()
             return HttpResponseRedirect(record.get_absolute_url())
     else:
-        joke_form = JokeForm()
-        image_form = ImageForm()
-        quote_form = QuoteForm()
-        video_form = VideoForm()
+        form = Form()
 
-    return {'joke_form': joke_form,
-            'image_form': image_form,
-            'quote_form' : quote_form,
-            'video_form' : video_form}
+    return {'form': form }

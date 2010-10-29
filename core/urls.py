@@ -6,7 +6,7 @@ urlpatterns = patterns('core.views',
                        (r'^$', 'list'),
                        (r'^in_line/?$', 'list'),
                        (r'^(?P<record_id>\d+)$', 'details'),
-                       (r'^new$', 'new')
+                       (r'^new/(?P<record_type>\w+)?/?$', 'new')
                        )
 
 urlpatterns += patterns(
