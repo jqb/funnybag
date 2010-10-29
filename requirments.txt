@@ -1,5 +1,9 @@
 Django==1.2.3
 PIL==1.1.7
 distribute==0.6.10
+django-annoying==0.7.5
+django-ratings==0.3.5
+django-registration==0.7
+django-render==0.1
 ipython==0.10.1
 wsgiref==0.1.2
