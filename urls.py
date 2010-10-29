@@ -13,11 +13,3 @@ urlpatterns = patterns('',
 
                        (r'^accounts/', include('registration.urls')),
                        )
-
-
-if settings.DEBUG:
-    urlpatterns += patterns('',
-                            (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-                             {'document_root': settings.MEDIA_ROOT,
-                              'show_indexes': True}),
-                            )

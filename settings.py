@@ -75,6 +75,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'annoying.middlewares.StaticServe',
 )
 
 ROOT_URLCONF = 'funnybag.urls'
@@ -95,8 +96,10 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 
     'funnybag.core',
+
     'registration',
     'djangoratings',
+    'annoying',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7

@@ -6,19 +6,21 @@ from django.contrib.auth import forms as auth_form
 
 from funnybag.core.models import Record
 from funnybag.core.forms import JokeForm, ImageForm, QuoteForm, VideoForm
+from annoying.decorators import render_to
 
+@render_to('core/details.html')
 def details(request, record_id):
-    return direct_to_template(request, 'core/details.html',
-                              {'record': get_object_or_404(Record, pk=record_id) })
+    return {'record': get_object_or_404(Record, pk=record_id) }
 
+@render_to('core/list.html')
 def list(request):
     records = Record.objects.order_by('-created_time')
     login_form = auth_form.AuthenticationForm()
-    return direct_to_template(request, 'core/list.html',
-                              {'records': records ,
-                               'login_form' : login_form,
-                               'login_next' : "/"})
+    return {'records': records ,
+            'login_form' : login_form,
+            'login_next' : "/"}
 
+@render_to('core/new.html')
 def new(request):
     if request.method == 'POST':
         form = JokeForm(request.POST)
@@ -31,8 +33,7 @@ def new(request):
         quote_form = QuoteForm()
         video_form = VideoForm()
 
-    return direct_to_template(request, 'core/new.html',
-                              {'joke_form': joke_form,
-                               'image_form': image_form,
-                               'quote_form' : quote_form,
-                               'video_form' : video_form})
+    return {'joke_form': joke_form,
+            'image_form': image_form,
+            'quote_form' : quote_form,
+            'video_form' : video_form}
