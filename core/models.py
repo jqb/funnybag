@@ -4,6 +4,18 @@ from django.contrib.contenttypes import generic
 from djangoratings.fields import RatingField
 
 
+class RecordManager(models.Manager):
+    def get_top(self, count):
+        # example algorithm taken from http://github.com/dcramer/django-ratings
+        param = '((100 / %s * rating_score / (rating_votes + %s )) + 100) / 2' % (
+            self.model.rating.range,
+            self.model.rating.weight
+            )
+        qs = self.get_query_set().extra(select={'rating_value': param})
+        qs = qs.order_by('-rating_value')[:count]
+        return qs
+
+
 class Record(models.Model):
     data_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
@@ -12,6 +24,7 @@ class Record(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
     rating = RatingField(range=5)
 
+    objects = RecordManager()
 
     @models.permalink
     def get_absolute_url(self):

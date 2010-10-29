@@ -4,6 +4,7 @@ from funnybag.core.views import AddRecordRating
 
 urlpatterns = patterns('core.views',
                        url(r'^$', 'list', name="core-list"),
+                       url(r'^top/$', 'top', name="core-top-records"),
                        (r'^in_line/?$', 'list'),
                        (r'^(?P<record_id>\d+)$', 'details'),
                        url(r'^new/(?P<record_type>\w+)?/?$', 'new', name='core-new-record')

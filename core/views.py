@@ -25,6 +25,14 @@ def list(request):
             'login_form' : login_form,
             'login_next' : "/"}
 
+@render_to('core/top.html')
+def top(request):
+    records = Record.objects.get_top(5)
+    login_form = auth_form.AuthenticationForm()
+    return {'records': records ,
+            'login_form' : login_form,
+            'login_next' : "/"}
+
 @render_to('core/new.html')
 def new(request, record_type):
     Form = dict(joke=JokeForm, quote=QuoteForm,
