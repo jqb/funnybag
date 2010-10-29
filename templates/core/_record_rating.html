@@ -1,8 +1,7 @@
 {% load ratings %}
 {% rating_by_user user on record.rating as vote %}
-{% if vote %}[{{ vote }}]
+{% if vote %}[{{ record.rating.score }}]
 {% else %}
-Vote on this:
 <ul class="vote-selection">
   <li><a href="{% url core-rate-record record.id 1 %}">1</a></li>
   <li><a href="{% url core-rate-record record.id 2 %}">2</a></li>
