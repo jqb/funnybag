@@ -95,7 +95,8 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 
     'funnybag.core',
-    'registration'
+    'registration',
+    'djangoratings',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7

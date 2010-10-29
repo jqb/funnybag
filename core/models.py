@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
+from djangoratings.fields import RatingField
+
 
 class Record(models.Model):
     data_type = models.ForeignKey(ContentType)
@@ -8,6 +10,8 @@ class Record(models.Model):
     data = generic.GenericForeignKey('data_type', 'object_id')
 
     created_time = models.DateTimeField(auto_now_add=True)
+    rating = RatingField(range=5)
+
 
     @models.permalink
     def get_absolute_url(self):
