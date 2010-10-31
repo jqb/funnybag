@@ -238,6 +238,19 @@ aside .inside{
     width: 500px;
 }
 
+.login-form {
+    background-color: #c3f39f;
+    padding: 20px;
+
+    -webkit-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+
+    -webkit-box-shadow: #413333 0px 2px 4px;
+    -moz-box-shadow: #413333 0px 2px 4px;
+    box-shadow: #413333 0 1px 0;
+}
+
 .login-form a{
     color:#AF3300;
     outline:medium none;

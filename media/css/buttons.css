@@ -1,0 +1,52 @@
+a.button{ text-decoration:none; }
+
+/* buttons shape */
+.button {
+    -webkit-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+
+    border:1px #555 solid;
+    padding:5px 10px;
+
+    /* defaults */
+    color:#F0F0F0;
+    font-size: 15px;
+    background-color: #555;
+}
+
+/* default hover */
+.button:hover{ background-color: #222; }
+
+
+.button.shadow {
+    -webkit-box-shadow: #413333 0 2px 4px;
+    -moz-box-shadow: #413333 0 2px 4px;
+    box-shadow: #413333 0 1px 0;
+}
+
+
+/* buttons size */
+.button.small { font-size: 10px; }
+.button.medium { font-size: 15px; }
+.button.large { font-size: 20px; }
+
+
+/* custom buttons */
+.button.submit {
+    font-weight: bold;
+    background-color: #8BD92F;
+    background-image: -moz-linear-gradient(top, #8BD92F, #5FB221); /* FF3.6 */
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #8BD92F),color-stop(1, #5FB221)); /* Saf4+, Chrome */
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#8BD92F', EndColorStr='#5FB221'); /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#8BD92F', EndColorStr='#5FB221')"; /* IE8 */
+}
+
+.button.submit:hover {
+    background-color:#4e8a22;
+    background-color: #8BD92F;
+    background-image: -moz-linear-gradient(top, #8BD92F, #4e8a22); /* FF3.6 */
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #8BD92F),color-stop(1, #4e8a22)); /* Saf4+, Chrome */
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#8BD92F', EndColorStr='#4e8a22'); /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#8BD92F', EndColorStr='#4e8a22')"; /* IE8 */
+}

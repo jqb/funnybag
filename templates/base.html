@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/reset.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/buttons.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/queries/netbooks-tablets.css" type="text/css" media="screen and (max-width: 1007px)" />
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -30,10 +31,10 @@
 	    <h1>Funny<span>bag</span></h1>
 	  </a>
           <nav>
-	    <a href="/">{% trans "latest" %}</a>
-	    <a href="{% url core-top-records %}">{% trans "top" %}</a>
-	    <a href="{% url core-all-list %}">{% trans "all" %}</a>
-	    <a href="/new">{% trans "new" %}</a>
+	    <a class="button large" href="/">{% trans "latest" %}</a>
+	    <a class="button large" href="{% url core-top-records %}">{% trans "top" %}</a>
+	    <a class="button large" href="{% url core-all-list %}">{% trans "all" %}</a>
+	    <a class="button large" href="/new">{% trans "new" %}</a>
           </nav>
         </div>
       </header>

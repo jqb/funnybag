@@ -1,7 +1,5 @@
 {% load i18n %}
 
-<h2>Login</h2>
-
 {% if login_form.errors %}
 <p class="errors">Your username and password didn't match. Please try again.</p>
 {% endif %}
@@ -9,13 +7,15 @@
 <form class="login-form" method="post" action="{% url django.contrib.auth.views.login %}">
   {% csrf_token %}
 
+  <h2>Login</h2>
+
   <h3>{{ login_form.username.label_tag }}</h3>
   <div>{{ login_form.username }}</div>
   <h3>{{ login_form.password.label_tag }}</h3>
   <div>{{ login_form.password }}</div>
 
   <div style="text-align:right">
-    <input type="submit" value="login" />
+    <input type="submit" class="button submit shadow" value="login" />
   </div>
   <input type="hidden" name="next" value="{{ login_next }}" />
   <ul>
