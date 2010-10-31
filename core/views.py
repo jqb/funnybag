@@ -18,8 +18,10 @@ def details(request, record_id):
     return {'record': get_object_or_404(Record, pk=record_id) }
 
 @render_to('core/list.html')
-def list(request):
+def list(request, count=2):
     records = Record.objects.order_by('-created_time')
+    if count:
+        records = records[:count]
     login_form = auth_form.AuthenticationForm()
     return {'records': records ,
             'login_form' : login_form,
